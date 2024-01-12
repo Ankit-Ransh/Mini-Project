@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    height: 10vh;
+    width: 100vw;
+    background-color: #081b31;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.container{
+    height: 40vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container div{
+    height: 13rem;
+    width: 13rem;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+}
+
+img{
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.container div:hover{
+    cursor: pointer;
+}
+
+.score{
+    height: 4rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score div{
+    margin-right: 5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.score div:last-child{
+    margin-right: 0;
+}
+
+.scoreDefinition{
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    width: 100vw;
+}
+
+.scoreDefinition div{
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.scoreDefinition div:last-child{
+    margin-right: 0;
+}
+
+.btn{
+    height: 4rem;
+    width: 100vw;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.result{
+    height: 100%;
+    width: 20%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: #081b31;
+    color: #fff;
+    border-radius: 1rem;
+    border: 2px solid;
+}
+
+.result:hover{
+    cursor: pointer;
+}
