@@ -2,6 +2,9 @@
 
 A simple and interactive Tic Tac Toe game implemented using HTML, CSS, and JavaScript. This project provides a user-friendly and enjoyable gaming experience with a clean and responsive design. Whether you're a beginner looking to understand the basics of web development or a seasoned developer wanting to explore a classic game implementation, this Tic Tac Toe project is a great starting point.
 
+## Overview
+<img width="1352" alt="Screenshot 2024-01-12 at 9 24 55 PM" src="https://github.com/Ankit-Ransh/Mini-Project/assets/98517507/bf058979-41e1-4a15-8c4d-80e197793845">
+
 ## Features
 
 - **User-Friendly Interface**: The game comes with a clean and intuitive interface, making it easy for players to understand.
