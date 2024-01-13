@@ -41,4 +41,8 @@ Feel free to contribute to the project by forking the repository and submitting 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Acknowledgments
+
+- Special thanks to Shradha Khapra for the design ```https://youtu.be/_V33HCZWLDQ?feature=shared```
+
 Let the games begin! Have fun playing Rock, Paper, Scissors!
