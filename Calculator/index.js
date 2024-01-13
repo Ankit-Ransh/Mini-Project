@@ -1,8 +1,12 @@
 let btn = document.querySelector(".grid");
 let calculationArea = document.querySelector(".expression");
 let resultArea = document.querySelector(".result");
+let mode = document.querySelector(".toggle");
+let isDarkModeEnabled = false;
+
 let expression = "";
 let result = 0;
+let toggle = 1;
 
 let outputQueue = [];
 let operatorStack = [];
@@ -18,6 +22,22 @@ const operatorPrecedence = {
     "/": 3,
     "%": 4,
 }
+
+mode.addEventListener("click", () => {
+    if(toggle){
+        console.log(document.getElementById("stylesheet"));
+        document.getElementById("stylesheet").href = "darkStyle.css";
+        mode.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
+        toggle = !toggle;
+        isDarkModeEnabled = true;
+    }
+    else{
+        document.getElementById("stylesheet").href = "lightStyle.css";
+        mode.innerHTML = '<i class="fas fa-moon fa-inverse toggler-icon"></i>';
+        toggle = !toggle;
+        isDarkModeEnabled = false;
+    }
+})
 
 const clearScreen = () => {
     calculationArea.innerText = ""; resultArea.innerText = "";
@@ -130,6 +150,9 @@ const postFixExpression = (backspaceEnabled) => {
     // console.log(outputQueue);
     // console.log(operatorStack);
     if(!backspaceEnabled) evaluatePostfix();
+    else{
+        resultArea.innerText = "";
+    }
 }
 
 const evaluatePostfix = () => {
@@ -192,7 +215,8 @@ btn.addEventListener("click", (e) => {
     let choice = e.target.closest("[data-choice]");
 
     // Change color from error to regular 
-    calculationArea.style.color = "#200819";
+    if(isDarkModeEnabled) calculationArea.style.color = "#fff";
+    else calculationArea.style.color = "#200819";
 
     if(choice){
         let userChoice = choice.dataset.choice;

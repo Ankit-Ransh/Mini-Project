@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Calculator </title>
 
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
     <!-- Google Fonts  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS Link  -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Light Mode  -->
+    <link id="stylesheet" rel="stylesheet" href="lightStyle.css">
+
+    <!-- Dark Mode enabled by JS -->
+    <!-- <link id="stylesheet" rel="stylesheet" href="darkStyle.css"> -->
 
 </head>
 <body>
@@ -23,7 +30,13 @@
             <!-- calculator heading  -->
             <div class="heading">
                 <span> Calculator </span>
-                <span> &#8942; </span>
+                <div class="toggle">
+                    <!-- Light Mode -->
+                    <i class="fas fa-moon fa-inverse toggler-icon"></i>
+
+                    <!-- Dark Mode enabled by JS  -->
+                    <!-- <i class="fa-solid fa-circle-half-stroke"></i>  -->
+                </div>
             </div>
 
             <div class="calculation">
@@ -36,7 +49,7 @@
                 <button class="btn" data-choice="B" > 
                     <i class="material-icons">backspace</i> 
                 </button>
-                <button class="btn">  
+                <button class="btn doubleBracket">  
                     <span class="bracket" data-choice="("> ( </span>
                     <span class="bracket" data-choice=")"> ) </span>
                 </button>
