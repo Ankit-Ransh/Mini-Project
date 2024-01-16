@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaQueries.css"> 
+
+</head>
+<body>
+    <div class="container">
+        <div class="weather">
+            
+            <div class="location">
+                <div class="searchBox">
+                    <form action="" class="desiredLocation">
+                        <input class="search" id="input" type="text" placeholder="Search for a city"> 
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+                <div class="degrees">
+                    <span class="degree" id="celsius"> &deg;C </span>
+                    <span class="degree" id="fahrenheit"> &deg;F </span>
+                </div>
+            </div>
+
+            <div class="heading">
+                <div class="city"> </div>
+                <div class="date"> </div>
+            </div>
+
+            <div class="heading data">
+                <div class="status"> </div>
+                <div class="icon"></div>
+                <div class="temperature"> </div>
+                <div class="minMax">
+                    <p> Min: </p>
+                    <div class="min"> </div>
+                    <p> Max: </p>
+                    <div class="max"> </div>
+                </div>
+            </div>
+
+            <div class="heading grid">
+
+                <div class="card">
+                    <i class="fa fa-thermometer"></i>
+                    <div>
+                        <span> Real Feel </span>
+                        <span class="actual" > </span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa fa-tint"></i>
+                    <div>
+                        <span> Humidity </span>
+                        <span class="humidity"> </span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa fa-plane"></i>
+                    <div>
+                        <span> Wind </span>
+                        <span class="wind"> </span>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa fa-podcast"></i>
+                    <div>
+                        <span> Pressure </span>
+                        <span class="pressure"> </span>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

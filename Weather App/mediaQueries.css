@@ -1,0 +1,148 @@
+/* Extra small devices 320 0r below  */
+@media only screen and (max-width: 479px) {
+    .container{
+        background: #171717;
+        padding: 1rem;
+    }
+    
+    .weather{
+        height: 100%;
+        width: 100%;
+        padding: 0;
+    }
+
+    .city{
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .data{
+        height: 25%;
+        justify-content: space-evenly;
+    }
+
+    .grid{
+        height: 45%;
+    }
+
+    .card{
+        height: 20%;
+        width: 100%;
+        background: #1e1e1e;
+        border: none;
+        border-radius: 1rem;
+        display: flex;
+        /* border: 2px solid red;  */
+    }
+}
+
+/* small devices (phones, 600px and down) */
+@media only screen and (min-width: 480px) {
+    .weather{
+        height: 90%;
+        width: 80%;
+    }
+
+    .card{
+        width: calc(50% - 1rem);
+    }
+
+    .card i{
+        font-size: 1.8rem;
+        justify-content: flex-end;
+    }
+
+    .card div{
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .weather{
+        width: 70%;
+    }
+
+    .card{
+        width: 45%;
+    }
+    .card i{
+        font-size: 2rem;
+        justify-content: flex-end;
+    }
+
+    .card div{
+        font-size: 1rem;
+        padding-left: 0.8rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .weather{
+        width: 50%;
+    }
+
+    .card i{
+        font-size: 1.8rem;
+        justify-content: flex-end;
+    }
+
+    .card div{
+        font-size: 0.9rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .weather{
+        width: 45%;
+        height: 90%;
+    }
+
+    .city{
+        font-size: 2.4rem;
+        font-weight: 800;
+    }
+
+    .date{
+        font-size: 1rem;
+    }
+
+    .status{
+        font-size: 1.5rem;
+    }
+
+    .icon img{
+        height: auto;
+        width: 100px;
+        color: white;
+        /* border: 2px solid white; */
+    }
+
+    .card i{
+        width: 35%;
+        font-size: 2.5rem;
+        justify-content: center;
+    }
+
+    .card div{
+        font-size: 1.2rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .weather{
+        width: 35%;
+    } 
+
+    .temperature{
+        font-size: 1.7rem;
+    }
+
+    .minMax{
+        font-size: 1.2rem;
+    }
+}
