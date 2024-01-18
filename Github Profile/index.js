@@ -5,16 +5,17 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 const reposContainer = document.querySelector(".repo");
 const pagination = document.querySelector(".pagination");
+
 const reposPerPageDisplay = document.querySelector("#format");
 
-const API = "https://api.github.com/users/";
+const API_URL = "http://127.0.0.1:3000/";
 const BASE_REPO_URL = "https://github.com/";
 
 let repositoriesDetails = [];
 
 let totalRepo = 0;
-let reposPerPage = 10;
 let numberOfPages = 0;
+let reposPerPage = 10;
 let pageNumber = 1;
 let isDataRetrieved = false;
 
@@ -28,46 +29,6 @@ const disableLoader = () => {
     document.querySelector(".container").style.display = "block";
     document.getElementById("stylesheet").href = "style.css";
     document.querySelector(".load").style.display = "none";
-}
-
-const gitData = async (e) => {
-    e.preventDefault();
-    if(input.value !== "") {
-        username = input.value;
-    }
-
-    if(username !== ""){
-        try{
-            enableLoader();
-            const data = await fetchData(username);
-            const repos = await fetchRepos(username);
-
-            isDataRetrieved = true;
-            enableRepoPerPageDisplay();
-        }
-        catch(err){
-            console.log(err);
-        }
-        finally{
-            disableLoader();
-            input.value = "";
-        }
-    }
-}
-
-form.addEventListener("submit", (e) => {
-    gitData(e);
-});
-
-const resetData = () => {
-    reposContainer.innerHTML = '';
-    pagination.innerHTML = '';
-    totalRepo = 0;
-    totalRepo = 0;
-    reposPerPage = 10;
-    pageNumber = 1;
-    repositoriesDetails = [];
-    isDataRetrieved = false;
 }
 
 const createPagination = () => {
@@ -93,18 +54,15 @@ const createPagination = () => {
 }
 
 const fetchData = async (username) => {
-    const url = `${API}${username}`;
-    const response = await fetch(url);
-
-    // const response = await fetch(url, {
-    //     headers: {
-    //         Authorization: `Bearer ${token}`,
-    //     },
-    // });
+    const response = await fetch(`${API_URL}api/user`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: username })
+    });
 
     if (!response.ok) throw new Error(response.statusText);
-
-    resetData();
 
     const data = await response.json();
     // console.log(data);
@@ -125,100 +83,6 @@ const fetchData = async (username) => {
     document.getElementById("githubUrl").href = data.html_url;
 }
 
-const fetchRepos = async (username) => {
-    try {
-        const apiUrl = API + `${username}/repos`;
-        const data = await getPaginatedData(apiUrl);
-
-        // console.dir(data);
-
-        for (const repo of data) {
-            await createCard(repo);
-        }
-
-        displayPage(pageNumber, reposPerPage);
-        
-    } catch (err) {
-        throw new Error(err);
-        console.log(err);
-    }
-}
-
-const getPaginatedData = async (url) => {
-    const nextPattern = /(?<=<)([\S]*)(?=>; rel="next")/i;
-    let pagesRemaining = true;
-    let data = [];
-
-    const parseData = (data) => {
-        if (Array.isArray(data)) {
-            return data;
-        }
-
-        if (!data) {
-            return [];
-        }
-
-        delete data.incomplete_results;
-        delete data.repository_selection;
-        delete data.total_count;
-
-        const namespaceKey = Object.keys(data)[0];
-        data = data[namespaceKey];
-
-        return data;
-    };
-
-    while (pagesRemaining) {
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/vnd.github.v3+json',
-                // 'Authorization': `Bearer ${token}`,
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch data. Status: ${response.status}`);
-        }
-
-        const responseData = await response.json();
-        const parsedData = parseData(responseData);
-        data = [...data, ...parsedData];
-
-        const linkHeader = response.headers.get('link');
-
-        pagesRemaining = linkHeader && linkHeader.includes(`rel="next"`);
-
-        if (pagesRemaining) {
-            url = linkHeader.match(nextPattern)[0];
-        }
-    }
-
-    return data;
-}
-
-const displayPage = (pageNumber, reposPerPage) => {
-    reposContainer.innerHTML = '';
-    pagination.innerHTML = '';
-    
-    createPagination();
-
-    const startIndex = parseInt((pageNumber - 1) * reposPerPage);
-    const endIndex = parseInt(startIndex + reposPerPage);
-
-    // console.log(startIndex,endIndex);
-
-    // Get the repositories for the specified page
-    const repositoriesForPage = repositoriesDetails.slice(startIndex, endIndex);
-
-    // Log or display the repositories for the specified page
-    repositoriesForPage.forEach(repo => {
-        reposContainer.append(repo);
-    });
-
-    // console.log(repositoriesDetails);
-}
-
 // Function to fetch languages data and create cards asynchronously
 const createCard = async ({ name, description, languages_url, git_url }) => {
     const modifiedUrl = git_url
@@ -226,13 +90,14 @@ const createCard = async ({ name, description, languages_url, git_url }) => {
         .replace(/\.git$/, "");
 
     try {
-        // Fetch languages data from languages_url
-        const response = await fetch(languages_url);
-        // const response = await fetch(languages_url, {
-        //     headers: {
-        //         Authorization: `Bearer ${token}`,
-        //     },
-        // });
+        // Fetch languages data from the backend API
+        const response = await fetch(`${API_URL}api/languages`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ languagesUrl: languages_url }),
+        });
 
         if (!response.ok) {
             throw new Error(`Error fetching languages: ${response.statusText}`);
@@ -257,11 +122,81 @@ const createCard = async ({ name, description, languages_url, git_url }) => {
 
         // Return the created card
         return card;
-    } catch (error) {
+    } 
+    catch (error) {
         // console.error('Error fetching languages:', error);
         throw error; // Propagate the error to the caller
     }
 };
+
+const displayPage = () => {
+    reposContainer.innerHTML = '';
+    pagination.innerHTML = '';
+    
+    createPagination();
+
+    // Log or display the repositories for the specified page
+    repositoriesDetails.forEach(repo => {
+        reposContainer.append(repo);
+    });
+}
+
+const fetchRepos = async (username) => {
+    repositoriesDetails = [];
+
+    try{
+        const response = await fetch(`${API_URL}api/repos`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, pageNumber, reposPerPage })
+        });
+
+        if (!response.ok) throw new Error(response.statusText);
+        const data = await response.json();
+        // console.log(data);
+
+        for (const repo of data) {
+            await createCard(repo);
+        }
+
+        displayPage();
+        
+    } catch (err) {
+        throw new Error(err);
+    }
+}
+
+const gitData = async (e) => {
+    e.preventDefault();
+    if(input.value !== "") {
+        username = input.value;
+    }
+
+    if(username !== ""){
+        try{
+            enableLoader();
+            const data = await fetchData(username);
+            const repos = await fetchRepos(username);
+
+            isDataRetrieved = true;
+            enableRepoPerPageDisplay();
+        }
+        catch(err){
+            throw new Error(err);
+            // console.log(err);
+        }
+        finally{
+            disableLoader();
+            input.value = "";
+        }
+    }
+}
+
+form.addEventListener("submit", (e) => {
+    gitData(e);
+});
 
 // Handle on click event of repo perpage and pages
 const enableRepoPerPageDisplay = () => {
@@ -280,14 +215,16 @@ const disableRepoPerPageDisplay = () => {
     `;
 }
 
-reposPerPageDisplay.addEventListener("change", () => {
+reposPerPageDisplay.addEventListener("change", async() => {
     const selectedValue = reposPerPageDisplay.value;
-    // console.log(isDataRetrieved);
 
     if(isDataRetrieved === true){
         reposPerPage = parseInt(selectedValue);
         pageNumber = 1;
-        displayPage(pageNumber,reposPerPage);
+
+        enableLoader();
+        await fetchRepos(username);
+        disableLoader();
     }
     else{
         disableRepoPerPageDisplay();
@@ -295,17 +232,30 @@ reposPerPageDisplay.addEventListener("change", () => {
 
 })
 
-pagination.addEventListener("click", (e) => {
+pagination.addEventListener("click", async (e) => {
     const selectedValue = e.target.innerText;
 
     if(selectedValue === "«") pageNumber = 1;
     else if(selectedValue === "»") pageNumber = parseInt(numberOfPages);
     else pageNumber = parseInt(selectedValue);
 
-    displayPage(pageNumber,reposPerPage);
+    enableLoader();
+    await fetchRepos(username);
+    disableLoader();
 })
 
 window.addEventListener('load', (e) => {
     disableLoader();
     gitData(e);
 });
+
+// const resetData = () => {
+//     reposContainer.innerHTML = '';
+//     pagination.innerHTML = '';
+//     totalRepo = 0;
+//     totalRepo = 0;
+//     reposPerPage = 10;
+//     pageNumber = 1;
+//     repositoriesDetails = [];
+//     isDataRetrieved = false;
+// }
