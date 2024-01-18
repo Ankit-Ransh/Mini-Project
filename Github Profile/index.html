@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Github Profile Clone </title>
+
+    <!-- CSS Link  -->
+    <link rel="stylesheet" id="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" id="stylesheet" href="waiting.css"> -->
+
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+</head>
+<body>
+
+    <div class="load">
+        <span class="loader"></span>
+    </div>
+
+    <div class="container">
+        <header>
+            <ul>
+                <li> 
+                    <a href="#" id="repositories" target="_blank"> <i class="fa-solid fa-folder"></i> Repositories  </a> 
+                </li>
+                <li> 
+                    <a href="#" id="stars" target="_blank"> <i class="fa-solid fa-star"></i> Stars </a> 
+                </li>
+                <li> 
+                    <a href="#" id="projects" target="_blank"> <i class="fa-solid fa-cloud"></i> Projects </a> 
+                </li>
+                <li> 
+                    <a href="#" id="packages" target="_blank"> <i class="fa-solid fa-cube"></i> Packages </a> 
+                </li>
+                <li class="navbar">
+                    <form action="">
+                        <input type="text" placeholder="Search username"> 
+                    </form>
+                </li>
+            </ul>
+        </header>
+
+        <div class="profile">
+            <div class="img">
+                <a href="" id="githubUrl" target="_blank"><img src="" alt="profile-img" id="profile-img"> </a> 
+                <!-- <a href="#" id="" target="_blank"></a> -->
+            </div>
+            <div class="user-data">
+                <h2 class="name"> </h2>
+                <p class="username"> </p>
+                <p class="bio"> </p>
+            </div>
+            <div class="search">
+            </div>
+        </div>
+
+        <div class="repo"></div>
+
+        <div class="wrapper">
+            <div class="pagination"> </div>
+        </div>
+
+        <div class="paginationDescription">
+            <div class="older">
+                <i class="fa-solid fa-arrow-left"></i>
+                <p> Older </p>
+            </div>
+            <div class="newer">
+                <p> Newer </p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+
+        <div class="select repoOption">
+            <p class="repoSwitch"> Repositories per page </p>
+            <select name="format" id="format">
+                <option disabled value="10" id="tenPages"> 10 </option>
+                <option disabled value="50" id="fiftyPages"> 50 </option>
+                <option disabled value="100" id="hunderedPages"> 100 </option>
+            </select>
+        </div>
+
+        <footer class="footer">  </footer>
+
+    </div>
+
+    <script src="index.js"></script> 
+</body>
+</html>
