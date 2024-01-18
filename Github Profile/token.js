@@ -7,6 +7,7 @@ const reposContainer = document.querySelector(".repo");
 const pagination = document.querySelector(".pagination");
 const reposPerPageDisplay = document.querySelector("#format");
 
+const token = ""; // Github API TOKEN
 const API = "https://api.github.com/users/";
 const BASE_REPO_URL = "https://github.com/";
 
@@ -94,13 +95,13 @@ const createPagination = () => {
 
 const fetchData = async (username) => {
     const url = `${API}${username}`;
-    const response = await fetch(url);
+    // const response = await fetch(url);
 
-    // const response = await fetch(url, {
-    //     headers: {
-    //         Authorization: `Bearer ${token}`,
-    //     },
-    // });
+    const response = await fetch(url, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
 
     if (!response.ok) throw new Error(response.statusText);
 
@@ -173,7 +174,7 @@ const getPaginatedData = async (url) => {
             method: 'GET',
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
-                // 'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${token}`,
             },
         });
 
@@ -227,12 +228,11 @@ const createCard = async ({ name, description, languages_url, git_url }) => {
 
     try {
         // Fetch languages data from languages_url
-        const response = await fetch(languages_url);
-        // const response = await fetch(languages_url, {
-        //     headers: {
-        //         Authorization: `Bearer ${token}`,
-        //     },
-        // });
+        const response = await fetch(languages_url, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
 
         if (!response.ok) {
             throw new Error(`Error fetching languages: ${response.statusText}`);
