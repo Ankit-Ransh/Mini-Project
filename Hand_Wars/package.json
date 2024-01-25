@@ -1,0 +1,14 @@
+{
+  "name": "hand_wars",
+  "version": "1.0.0",
+  "description": "Welcome to the classic Rock, Paper, Scissors game where you can challenge the computer to a timeless battle of wits! This game allows you to play against the computer, and the fun never ends – keep playing for an infinite period!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.2"
+  }
+}

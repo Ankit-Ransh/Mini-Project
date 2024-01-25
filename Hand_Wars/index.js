@@ -32,6 +32,34 @@ const changeResultStyle = (res,color,size,width) => {
 const declareResult = (userChoice,computerChoice) => {
     for(let state of winnerStates){
 
+        const availScreenWidth  = window.screen.availWidth;
+
+        let size = 0,width = 0;
+        if(availScreenWidth < 320){
+            size = 1;
+            width = 80;
+        }
+        else if(availScreenWidth >= 320 && availScreenWidth < 480){
+            size = 1.2;
+            width = 80;
+        }
+        else if(availScreenWidth >= 480 && availScreenWidth < 600){
+            size = 1.2;
+            width = 70;
+        }
+        else if(availScreenWidth >= 600 && availScreenWidth < 768){
+            size = 1.2;
+            width = 50;
+        }
+        else if(availScreenWidth >= 768 && availScreenWidth < 992){
+            size = 1.2;
+            width = 45;
+        }
+        else{
+            size = 1.2;
+            width = 30;
+        }
+
         // result button
         let res = document.querySelector(".result");
 
@@ -42,7 +70,7 @@ const declareResult = (userChoice,computerChoice) => {
 
             res.innerText = `You won! ${indexToOptions[state[0]]} beats ${indexToOptions[state[1]]}`;
 
-            changeResultStyle(res,"green","1.2","25");
+            changeResultStyle(res,"green",size,width);
             return;
         }
 
@@ -53,13 +81,14 @@ const declareResult = (userChoice,computerChoice) => {
 
             res.innerText = `You lost. ${indexToOptions[state[0]]} beats ${indexToOptions[state[1]]}`;
 
-            changeResultStyle(res,"red","1.2","25");
+            changeResultStyle(res,"red",size,width);
             return;
         }
 
         // draw 
         res.innerText = "It was a Draw";
-        changeResultStyle(res,"#081b31","1.5","20");
+
+        changeResultStyle(res,"#081b31",size,width);
     }
 }
 

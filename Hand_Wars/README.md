@@ -1,4 +1,4 @@
-# Rock, Paper, Scissors Game
+# Hand Wars
 
 Welcome to the classic Rock, Paper, Scissors game where you can challenge the computer to a timeless battle of wits! This game allows you to play against the computer, and the fun never ends – keep playing for an infinite period!
 

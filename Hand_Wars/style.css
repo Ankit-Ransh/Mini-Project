@@ -23,6 +23,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* border: 2px solid red; */
 }
 
 .container div{
@@ -30,6 +31,7 @@
     width: 13rem;
     margin-right: 1.5rem;
     border-radius: 50%;
+    /* border: 2px solid; */
 }
 
 img{

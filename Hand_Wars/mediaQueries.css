@@ -1,0 +1,100 @@
+/* Extra small devices 320 0r below  */
+@media only screen and (max-width: 319px) {
+    .navbar{
+        font-size: 2rem;
+    }
+
+    .container{
+        height: 120vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* border: 2px solid red; */
+    }
+
+    .result{
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
+/* small devices (phones, 480px and down) */
+@media only screen and ((min-width: 320px) and (max-width: 480px)) {
+    .navbar{
+        font-size: 2.1rem;
+    }
+
+    .container{
+        height: 120vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* border: 2px solid red; */
+    }
+
+    .result{
+        width: 80%;
+        font-size: 1.2rem;
+    }
+}
+
+/* Medium devices (portrait tablets and large phones, 480px and up) */
+@media only screen and ((min-width: 480px) and (max-width: 600px)) {
+
+    .navbar{
+        font-size: 2.4rem;
+    }
+
+    .container div{
+        height: 8rem;
+        width: 8rem;
+        /* border: 2px solid; */
+    }
+
+    img{
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .result{
+        width: 70%;
+        font-size: 1.2rem;
+    }
+}
+
+/* Large devices (landscape tablets, 600px and up) */
+@media only screen and ((min-width: 600px) and (max-width: 768px)) {
+    .navbar{
+        font-size: 2.6rem;
+    }
+
+    .container div{
+        height: 10rem;
+        width: 10rem;
+        /* border: 2px solid; */
+    }
+
+    img{
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .result{
+        width: 50%;
+        font-size: 1.2rem;
+    }
+}
+
+
+@media only screen and ((min-width: 768px) and (max-width: 992px)) {
+    .result{
+        width: 45%;
+        font-size: 1.2rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .result{
+        width: 30%;
+        font-size: 1.2rem;
+    }
+}
