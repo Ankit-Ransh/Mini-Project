@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 let btn = document.querySelector(".btn");
 let result = document.querySelector(".result");
 let copyurl = "";
