@@ -1,0 +1,14 @@
+{
+  "name": "t3_domination",
+  "version": "1.0.0",
+  "description": "A simple and interactive Tic Tac Toe game implemented using HTML, CSS, and JavaScript. This project provides a user-friendly and enjoyable gaming experience with a clean and responsive design. Whether you're a beginner looking to understand the basics of web development or a seasoned developer wanting to explore a classic game implementation, this Tic Tac Toe project is a great starting point.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.2"
+  }
+}

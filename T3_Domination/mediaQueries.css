@@ -1,0 +1,162 @@
+/* Extra small devices 320 0r below  */
+@media only screen and (max-width: 319px) {
+    .game{
+        width: 100%;
+        font-size: 2rem;
+        /* border: 2px solid; */
+    }
+
+    .winner{
+        width: 100%;
+        font-size: 1.3rem;
+    }
+
+    .container{
+        width: 100vw;
+        border: 3px solid #FFFEFE;
+    }
+
+    .grid{
+        font-size: 300%;
+    }
+
+    .resetGame{
+        height: 8%;
+        width: 50%;
+        font-size: 1.2rem;
+    }
+}
+
+/* small devices (phones, 480px and down) */
+@media only screen and ((min-width: 320px) and (max-width: 480px)) {
+    .game{
+        width: 100%;
+        font-size: 2rem;
+        /* border: 2px solid; */
+    }
+
+    .winner{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .container{
+        width: 80vw;
+        border: 5px solid #FFFEFE;
+    }
+
+    .grid{
+        font-size: 400%;
+    }
+
+    .resetGame{
+        height: 8%;
+        width: 50%;
+        font-size: 1.5rem;
+    }
+}
+
+/* Medium devices (portrait tablets and large phones, 480px and up) */
+@media only screen and ((min-width: 480px) and (max-width: 600px)) {
+    .game{
+        width: 100%;
+        font-size: 2rem;
+        /* border: 2px solid; */
+    }
+
+    .winner{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .container{
+        width: 60vw;
+        border: 5px solid #FFFEFE;
+    }
+
+    .grid{
+        font-size: 450%;
+    }
+
+    .resetGame{
+        height: 8%;
+        width: 30%;
+        font-size: 1.2rem;
+    }
+}
+
+/* Large devices (landscape tablets, 600px and up) */
+@media only screen and ((min-width: 600px) and (max-width: 768px)) {
+    .game{
+        width: 100%;
+        font-size: 2rem;
+        /* border: 2px solid; */
+    }
+
+    .winner{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .container{
+        width: 50vw;
+        border: 5px solid #FFFEFE;
+    }
+
+    .grid{
+        font-size: 500%;
+    }
+
+    .resetGame{
+        height: 8%;
+        width: 30%;
+        font-size: 1.2rem;
+    }
+}
+
+
+@media only screen and ((min-width: 768px) and (max-width: 992px)) {
+    .game{
+        width: 100%;
+        font-size: 2rem;
+        /* border: 2px solid; */
+    }
+
+    .winner{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .container{
+        width: 40vw;
+        border: 5px solid #FFFEFE;
+    }
+
+    .grid{
+        font-size: 400%;
+    }
+
+    .resetGame{
+        height: 8%;
+        width: 30%;
+        font-size: 1.2rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .container{
+        width: 30vw;
+        border: 5px solid #FFFEFE;
+    }
+
+    .grid{
+        font-size: 400%;
+    }
+
+    .resetGame{
+        height: 8%;
+        width: 15%;
+        font-size: 1.2rem;
+    }
+}
