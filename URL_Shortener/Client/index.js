@@ -2,7 +2,12 @@ let btn = document.querySelector(".btn");
 let result = document.querySelector(".result");
 let copyurl = "";
 
-// const BACKEND_URL = "http://127.0.0.1:8080";  
+/*
+// For Local Host 
+const BACKEND_URL = "http://127.0.0.1:8080";  
+*/
+
+// Backend Server 
 const BACKEND_URL = "https://tinylinkr.onrender.com";
 
 btn.addEventListener("click", async (e) => {
