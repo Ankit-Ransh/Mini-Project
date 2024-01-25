@@ -4,7 +4,7 @@ let btn = document.querySelector(".btn");
 let result = document.querySelector(".result");
 let copyurl = "";
 
-const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = "http://127.0.0.1:8080";
 
 btn.addEventListener("click", async (e) => {
     e.preventDefault();
