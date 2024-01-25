@@ -1,9 +1,10 @@
+require("dotenv").config();
+
 let btn = document.querySelector(".btn");
 let result = document.querySelector(".result");
 let copyurl = "";
 
-const BACKEND_URL = "http://127.0.0.1:8080";
-const FRONTEND_URL = "http://127.0.0.1:5500/"
+const BACKEND_URL = process.env.BACKEND_URL;
 
 btn.addEventListener("click", async (e) => {
     e.preventDefault();

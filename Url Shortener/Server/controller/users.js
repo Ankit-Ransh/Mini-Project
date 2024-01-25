@@ -11,6 +11,10 @@ const generateUrl = () => {
 
 router.post("/", async (req, res) => {
 
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+
     if(req.body === null){
         return res.status(400).json({ error: 'Missing originalUrl in the request body' });
     }
