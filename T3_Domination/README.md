@@ -13,6 +13,8 @@ A simple and interactive Tic Tac Toe game implemented using HTML, CSS, and JavaS
   
 - **Winning Logic**: The game includes a robust winning logic that accurately determines the winner of each round.
 
+- **Responsive Design**: The game can be played from any device with smooth user experience.
+
 ## Technologies Used
 
 - **HTML**: The backbone of the project's structure.
